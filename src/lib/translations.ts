@@ -37,10 +37,39 @@ export const translations = {
     featuredProjects: "Proyectos Destacados",
     mindflowDesc: "Plataforma de automatización y orquestación de flujos de trabajo con integración de IA. Desarrollo de arquitectura backend escalable y pipelines de procesamiento.",
     qvapayDesc: "Plugin personalizado para integración de pasarela de pago QvaPay en WordPress/WooCommerce. Gestión de transacciones, webhooks y validación de pagos.",
-    qvaclickDesc: "Sistema de gestión y automatización de procesos de negocio con dashboard administrativo y endpoints de servicio.",
+    qvaclickDesc: "Plataforma de servicios freelance completa desarrollada sobre WordPress con integración de sistemas externos, automatización de procesos y comunicación multicanal. Incluye sistema de pagos QvaPay, gestión de correo SMTP/IMAP, soporte por tickets, bot de Telegram y analítica avanzada.",
     detectDesc: "Pipeline completo de detección de objetos con modelos YOLO personalizados. Desde captura de imagen hasta inferencia optimizada en producción.",
     qvaminerDesc: "Sistema de procesamiento y análisis de datos con capacidades de extracción y transformación automatizada.",
     swipeDesc: "Aplicación con procesamiento de imágenes y OCR avanzado para extracción de información de documentos.",
+    
+    // QvaClick Project Details
+    qvaclickFullDesc: `**Rol:** Desarrollador e implementador principal
+
+**Descripción general:**
+QvaClick es una plataforma de servicios freelance desarrollada sobre el tema Exertio de WordPress, orientada a conectar empleadores y profesionales de manera eficiente. El proyecto abarcó la creación de un marketplace completamente funcional con integración de sistemas externos, automatización de procesos, comunicación multicanal y analítica avanzada.
+
+**Principales desarrollos y contribuciones:**
+
+🔹 **QvaPay Gateway Plugin**
+Plugin de integración directa con la API de QvaPay, permitiendo gestionar pagos y retiros en criptomonedas dentro del flujo nativo del tema Exertio. Compatibilidad con WooCommerce y soporte para múltiples criptomonedas (BTC, USDT-TRC20, USDT-BSC, BNB-BSC, TRX).
+
+🔹 **QVC Email Manager**
+Sistema completo de gestión de correo SMTP e IMAP, diseñado para unificar todas las operaciones de email marketing, notificaciones del sistema y seguimiento de tickets.
+
+🔹 **QVC Ticket System**
+Módulo interno de soporte basado en tickets para gestionar incidencias, solicitudes y reclamos. Integración con el panel de usuario y conexión con el sistema de correo.
+
+🔹 **QVC Telegram Bot Integration**
+Integración nativa con Telegram para comunicación automatizada, envío de actualizaciones, notificaciones de proyectos y publicación automática de alertas del sistema.
+
+🔹 **QVC News RSS**
+Plugin para obtención, gestión y publicación automatizada de noticias en el blog de QvaClick.
+
+🔹 **QVC Lead Conversion Analytics**
+Sistema avanzado de seguimiento de métricas y conversiones en las landing pages del sitio.
+
+**Enfoque profesional:**
+Desarrollo de soluciones personalizadas sobre WordPress orientadas a la integración de servicios externos, automatización de flujos operativos y analítica avanzada.`,
     
     // Education
     computerScience: "Licenciatura en Matemática y Física",
