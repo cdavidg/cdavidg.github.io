@@ -1,13 +1,13 @@
 export const translations = {
   es: {
-    title: "Desarrollador de Software y Especialista en IA",
+    title: "Ingeniero de Software, Aplicaciones Web y Especialista en IA",
     contactInfo: "Información de Contacto",
     mobile: "Móvil",
     specialization: "Especialización",
-    specializationDesc: "Desarrollo e implementación de herramientas de IA para automatización de tareas a nivel industrial",
+    specializationDesc: "Desarrollo e implementación de herramientas de IA y backend para la automatización de procesos y sistemas web a nivel industrial",
     mainStack: "Stack Principal",
     focus: "Enfoque",
-    focusDesc: "Soluciones escalables conectando IA con productos",
+    focusDesc: "Creación de soluciones web e inteligentes, escalables y mantenibles, conectando IA con productos reales y flujos de negocio",
     backend: "Backend & IA",
     scalability: "Escalabilidad",
     
@@ -81,14 +81,14 @@ export const translations = {
   },
   
   en: {
-    title: "Software Engineer",
+    title: "Software Engineer, Web Applications and AI Specialist",
     contactInfo: "Contact Information",
     mobile: "Mobile",
     specialization: "Specialization",
-    specializationDesc: "Backend development, automation and applied AI to real products",
+    specializationDesc: "Development and implementation of AI and backend tools for process automation and web systems at industrial level",
     mainStack: "Main Stack",
     focus: "Focus",
-    focusDesc: "Scalable solutions connecting AI with products",
+    focusDesc: "Creation of intelligent and scalable web solutions, connecting AI with real products and business flows",
     backend: "Backend & AI",
     scalability: "Scalability",
     
@@ -162,14 +162,14 @@ export const translations = {
   },
   
   ar: {
-    title: "مهندس برمجيات",
+    title: "مهندس برمجيات وتطبيقات ويب ومختص في الذكاء الاصطناعي",
     contactInfo: "معلومات الاتصال",
     mobile: "الهاتف",
     specialization: "التخصص",
-    specializationDesc: "تطوير الخلفية والأتمتة والذكاء الاصطناعي التطبيقي للمنتجات الحقيقية",
+    specializationDesc: "تطوير وتنفيذ أدوات الذكاء الاصطناعي والخلفية لأتمتة العمليات وأنظمة الويب على المستوى الصناعي",
     mainStack: "المكدس الرئيسي",
     focus: "التركيز",
-    focusDesc: "حلول قابلة للتوسع تربط الذكاء الاصطناعي بالمنتجات",
+    focusDesc: "إنشاء حلول ويب ذكية قابلة للتوسع والصيانة، تربط الذكاء الاصطناعي بالمنتجات الحقيقية وتدفقات الأعمال",
     backend: "الخلفية والذكاء الاصطناعي",
     scalability: "قابلية التوسع",
     

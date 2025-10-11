@@ -33,7 +33,7 @@ export default function App() {
               </div>
 
               {/* Name and Title */}
-              <h1 className="mb-2">David Guerra</h1>
+              <h1 className="text-2xl font-bold text-foreground mb-2">David Guerra</h1>
               <p className="text-muted-foreground mb-4">{t.title}</p>
 
               <Separator className="my-4" />
@@ -45,23 +45,14 @@ export default function App() {
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>+53 53069595</span>
+                  <span>+53 5 9441373</span>
                 </a>
                 <a
                   href="mailto:cdavidg@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-5 h-5" />
-                  <span>cdavidg@gmail.com</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/cdavidg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span>LinkedIn</span>
+                  <span>cedav95@gmail.com</span>
                 </a>
                 <a
                   href="https://github.com/cdavidg"
@@ -84,7 +75,7 @@ export default function App() {
                 </div>
                 <div>
                   <span className="text-muted-foreground text-sm">{t.mainStack}</span>
-                  <p className="text-sm mt-1 text-foreground">Python, PHP, JavaScript</p>
+                  <p className="text-sm mt-1 text-foreground">Python, PHP, JavaScript — con experiencia en Django, Flask, FastAPI, Laravel y APIs REST</p>
                 </div>
                 <div>
                   <span className="text-muted-foreground text-sm">{t.focus}</span>
