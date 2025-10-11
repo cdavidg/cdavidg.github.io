@@ -1,10 +1,10 @@
 export const translations = {
   es: {
-    title: "Ingeniero de Software",
+    title: "Desarrollador de Software y Especialista en IA",
     contactInfo: "Información de Contacto",
     mobile: "Móvil",
     specialization: "Especialización",
-    specializationDesc: "Desarrollo backend, automatización e IA aplicada a productos reales",
+    specializationDesc: "Desarrollo e implementación de herramientas de IA para automatización de tareas a nivel industrial",
     mainStack: "Stack Principal",
     focus: "Enfoque",
     focusDesc: "Soluciones escalables conectando IA con productos",
@@ -20,7 +20,7 @@ export const translations = {
     extras: "Extras",
     
     // Professional Summary
-    summary: "Ingeniero de software especializado en desarrollo backend, automatización e inteligencia artificial aplicada. Experiencia en Python (Django, Flask, FastAPI) y PHP (Laravel, CakePHP, WordPress), con integración de APIs, sistemas de pago y microservicios. Amplia experiencia en visión por computadora, entrenamiento de modelos (PyTorch, TensorFlow, YOLO, OCR), y despliegue de pipelines productivos optimizados. Me enfoco en crear soluciones escalables, limpias y mantenibles que conectan la IA con productos reales.",
+    summary: "Desarrollador especializado en herramientas de IA para automatización de tareas a nivel industrial. Experiencia en desarrollo de soluciones que optimizan procesos empresariales mediante Python, automatización inteligente y gestión de dispositivos Android. Me enfoco en crear herramientas prácticas que conectan la inteligencia artificial con necesidades reales de negocio, desde bots de Telegram hasta sistemas de sincronización de dispositivos.",
     
     // Technical Stack
     programmingLanguages: "Lenguajes de Programación",
@@ -43,12 +43,14 @@ export const translations = {
     swipeDesc: "Aplicación con procesamiento de imágenes y OCR avanzado para extracción de información de documentos.",
     
     // Education
-    computerScience: "Ingeniería en Ciencias de la Computación",
-    university: "Universidad Tecnológica",
+    computerScience: "Licenciatura en Matemática y Física",
+    university: "Universidad Marta Abreu de las Villas",
     aiCertification: "Certificación en Deep Learning & IA",
-    deepLearningAI: "DeepLearning.AI - Coursera",
-    dockerCertification: "Docker & Kubernetes Certificado",
-    cloudProvider: "Proveedor Cloud - Certificación Profesional",
+    deepLearningAI: "Especialización en IA Avanzada",
+    dockerCertification: "Certificación en Desarrollo con IA",
+    bigSchool: "BIG School",
+    webDevelopment: "Certificación en Desarrollo Web",
+    googleMicrosoft: "Google & Microsoft",
     
     // Soft Skills
     technicalCommunication: "Comunicación Técnica",
@@ -122,12 +124,14 @@ export const translations = {
     swipeDesc: "Application with advanced image processing and OCR for document information extraction.",
     
     // Education
-    computerScience: "Computer Science Engineering",
-    university: "Technology University",
+    computerScience: "Bachelor's Degree in Mathematics and Physics",
+    university: "Universidad Marta Abreu de las Villas",
     aiCertification: "Deep Learning & AI Certification",
-    deepLearningAI: "DeepLearning.AI - Coursera",
-    dockerCertification: "Docker & Kubernetes Certified",
-    cloudProvider: "Cloud Provider - Professional Certification",
+    deepLearningAI: "Advanced AI Specialization",
+    dockerCertification: "AI Development Certification",
+    bigSchool: "BIG School",
+    webDevelopment: "Web Development Certification",
+    googleMicrosoft: "Google & Microsoft",
     
     // Soft Skills
     technicalCommunication: "Technical Communication",

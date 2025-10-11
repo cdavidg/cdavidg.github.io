@@ -26,14 +26,14 @@ export default function App() {
               {/* Profile Image */}
               <div className="mb-6">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjAxMjYwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                  alt="Profile"
+                  src="/profile.jpg"
+                  alt="David Guerra Profile"
                   className="w-full aspect-square object-cover rounded-lg"
                 />
               </div>
 
               {/* Name and Title */}
-              <h1 className="mb-2">Tu Nombre</h1>
+              <h1 className="mb-2">David Guerra</h1>
               <p className="text-muted-foreground mb-4">{t.title}</p>
 
               <Separator className="my-4" />
@@ -41,21 +41,21 @@ export default function App() {
               {/* Contact Info */}
               <div className="space-y-3">
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+5353069595"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>+1 234 567 890</span>
+                  <span>+53 53069595</span>
                 </a>
                 <a
-                  href="mailto:tu@email.com"
+                  href="mailto:cdavidg@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-5 h-5" />
-                  <span>tu@email.com</span>
+                  <span>cdavidg@gmail.com</span>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/in/cdavidg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
@@ -64,7 +64,7 @@ export default function App() {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/cdavidg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
@@ -129,7 +129,7 @@ export default function App() {
                     type="degree"
                     title={t.computerScience}
                     institution={t.university}
-                    year="2015 - 2019"
+                    year="2019"
                     certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   />
 
@@ -144,16 +144,16 @@ export default function App() {
                   <CertificationItem
                     type="certification"
                     title={t.dockerCertification}
-                    institution="Docker Inc."
-                    year="2022"
-                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    institution={t.bigSchool}
+                    year="2025"
+                    certificateImage="/certificate_bigschool.png"
                   />
 
                   <CertificationItem
                     type="certification"
-                    title={t.cloudProvider}
-                    institution="AWS / DigitalOcean"
-                    year="2021"
+                    title={t.webDevelopment}
+                    institution={t.googleMicrosoft}
+                    year="2019"
                     certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   />
                 </div>
