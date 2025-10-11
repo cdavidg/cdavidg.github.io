@@ -1,6 +1,6 @@
 export const translations = {
   es: {
-    title: "Ingeniero de Software, Aplicaciones Web y Especialista en IA",
+    title: "Software Engineer, Aplicaciones Web y Especialista en IA",
     contactInfo: "Información de Contacto",
     mobile: "Móvil",
     specialization: "Especialización",
@@ -51,6 +51,8 @@ export const translations = {
     bigSchool: "BIG School",
     webDevelopment: "Certificación en Desarrollo Web",
     googleMicrosoft: "Google & Microsoft",
+    marketingCertification: "Mercadotecnia Básica",
+    cubanCommunicators: "Asociación Cubana de Comunicadores Sociales",
     
     // Soft Skills
     technicalCommunication: "Comunicación Técnica",
@@ -74,8 +76,8 @@ export const translations = {
     // Extras
     extrasOpenSource: "Contribuciones Open Source",
     extrasOpenSourceDesc: "Participación activa en proyectos de código abierto relacionados con IA y automatización",
-    extrasAthletics: "Atletismo de Larga Distancia",
-    extrasAthleticsDesc: "Disciplina y resistencia mental aplicada al desarrollo de proyectos complejos",
+    extrasAthletics: "Diseño Gráfico y UX/UI",
+    extrasAthleticsDesc: "Aprendizaje continuo en principios de diseño visual y experiencia de usuario para crear interfaces más intuitivas",
     extrasContinuousLearning: "Aprendizaje Continuo",
     extrasContinuousLearningDesc: "Investigación constante de nuevas tecnologías y mejores prácticas en IA y desarrollo backend",
   },
@@ -132,6 +134,8 @@ export const translations = {
     bigSchool: "BIG School",
     webDevelopment: "Web Development Certification",
     googleMicrosoft: "Google & Microsoft",
+    marketingCertification: "Basic Marketing",
+    cubanCommunicators: "Cuban Association of Social Communicators",
     
     // Soft Skills
     technicalCommunication: "Technical Communication",
@@ -155,8 +159,8 @@ export const translations = {
     // Extras
     extrasOpenSource: "Open Source Contributions",
     extrasOpenSourceDesc: "Active participation in open-source projects related to AI and automation",
-    extrasAthletics: "Long-Distance Athletics",
-    extrasAthleticsDesc: "Discipline and mental endurance applied to complex project development",
+    extrasAthletics: "Graphic Design and UX/UI",
+    extrasAthleticsDesc: "Continuous learning in visual design principles and user experience to create more intuitive interfaces",
     extrasContinuousLearning: "Continuous Learning",
     extrasContinuousLearningDesc: "Constant research of new technologies and best practices in AI and backend development",
   },
@@ -205,12 +209,16 @@ export const translations = {
     swipeDesc: "تطبيق مع معالجة الصور المتقدمة و OCR لاستخراج معلومات المستندات.",
     
     // Education
-    computerScience: "هندسة علوم الحاسوب",
-    university: "الجامعة التكنولوجية",
+    computerScience: "بكالوريوس في الرياضيات والفيزياء",
+    university: "Universidad Marta Abreu de las Villas",
     aiCertification: "شهادة في التعلم العميق والذكاء الاصطناعي",
-    deepLearningAI: "DeepLearning.AI - Coursera",
-    dockerCertification: "شهادة Docker و Kubernetes",
-    cloudProvider: "مزود السحابة - شهادة مهنية",
+    deepLearningAI: "تخصص متقدم في الذكاء الاصطناعي",
+    dockerCertification: "شهادة تطوير الذكاء الاصطناعي",
+    bigSchool: "BIG School",
+    webDevelopment: "شهادة تطوير الويب",
+    googleMicrosoft: "Google & Microsoft",
+    marketingCertification: "التسويق الأساسي",
+    cubanCommunicators: "الجمعية الكوبية للمتصلين الاجتماعيين",
     
     // Soft Skills
     technicalCommunication: "التواصل التقني",
@@ -234,8 +242,8 @@ export const translations = {
     // Extras
     extrasOpenSource: "مساهمات المصدر المفتوح",
     extrasOpenSourceDesc: "مشاركة نشطة في مشاريع مفتوحة المصدر المتعلقة بالذكاء الاصطناعي والأتمتة",
-    extrasAthletics: "ألعاب القوى لمسافات طويلة",
-    extrasAthleticsDesc: "الانضباط والقدرة على التحمل العقلي المطبقة على تطوير المشاريع المعقدة",
+    extrasAthletics: "التصميم الجرافيكي و UX/UI",
+    extrasAthleticsDesc: "التعلم المستمر في مبادئ التصميم البصري وتجربة المستخدم لإنشاء واجهات أكثر سهولة",
     extrasContinuousLearning: "التعلم المستمر",
     extrasContinuousLearningDesc: "البحث المستمر عن التقنيات الجديدة وأفضل الممارسات في الذكاء الاصطناعي وتطوير الخلفية",
   }

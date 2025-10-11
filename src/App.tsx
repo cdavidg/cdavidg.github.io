@@ -121,7 +121,6 @@ export default function App() {
                     title={t.computerScience}
                     institution={t.university}
                     year="2019"
-                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   />
 
                   <CertificationItem
@@ -129,7 +128,6 @@ export default function App() {
                     title={t.aiCertification}
                     institution={t.deepLearningAI}
                     year="2023"
-                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   />
 
                   <CertificationItem
@@ -142,10 +140,17 @@ export default function App() {
 
                   <CertificationItem
                     type="certification"
+                    title={t.marketingCertification}
+                    institution={t.cubanCommunicators}
+                    year="2017"
+                    certificateImage="/certificate_mercadotecnia.jpg"
+                  />
+
+                  <CertificationItem
+                    type="certification"
                     title={t.webDevelopment}
                     institution={t.googleMicrosoft}
                     year="2019"
-                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   />
                 </div>
               </div>
