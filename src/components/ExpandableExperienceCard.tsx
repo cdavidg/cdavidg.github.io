@@ -85,10 +85,79 @@ export function ExpandableExperienceCard({
             <div className="space-y-6 animate-in slide-in-from-top-2 duration-300">
               {/* Full Description */}
               {fullDescription && (
-                <div className="prose prose-sm dark:prose-invert max-w-none">
-                  <div className="whitespace-pre-line text-foreground leading-relaxed">
-                    {fullDescription}
-                  </div>
+                <div className="space-y-4">
+                  {fullDescription.split('\n\n').map((section, index) => {
+                    if (section.startsWith('**') && section.endsWith('**')) {
+                      // Main headers
+                      return (
+                        <h3 key={index} className="text-xl font-bold text-foreground mt-6 mb-3">
+                          {section.replace(/\*\*/g, '')}
+                        </h3>
+                      );
+                    } else if (section.startsWith('🔹 **') && section.includes('**')) {
+                      // Plugin sections
+                      const [title, ...content] = section.split('\n');
+                      const cleanTitle = title.replace('🔹 **', '').replace('**', '');
+                      return (
+                        <div key={index} className="space-y-2">
+                          <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                            <span className="text-primary">🔹</span>
+                            {cleanTitle}
+                          </h4>
+                          <div className="pl-6 text-muted-foreground leading-relaxed">
+                            {content.join('\n')}
+                          </div>
+                        </div>
+                      );
+                    } else if (section.includes(':')) {
+                      // Stack tecnológico and other key-value sections
+                      const lines = section.split('\n');
+                      return (
+                        <div key={index} className="space-y-2">
+                          {lines.map((line, lineIndex) => {
+                            if (line.includes(':') && line.includes('|')) {
+                              // Stack tecnológico line with separators
+                              const [label, ...parts] = line.split(':');
+                              return (
+                                <div key={lineIndex} className="space-y-1">
+                                  <h4 className="font-semibold text-foreground">{label.trim()}:</h4>
+                                  <div className="pl-4 text-muted-foreground">
+                                    {parts.join(':').split('|').map((part, partIndex) => (
+                                      <div key={partIndex} className="mb-1">
+                                        <span className="font-medium">{part.trim()}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            } else if (line.includes(':')) {
+                              // Regular key-value lines
+                              const [label, value] = line.split(':');
+                              return (
+                                <div key={lineIndex} className="flex gap-2">
+                                  <span className="font-semibold text-foreground">{label.trim()}:</span>
+                                  <span className="text-muted-foreground">{value?.trim()}</span>
+                                </div>
+                              );
+                            } else {
+                              return (
+                                <p key={lineIndex} className="text-muted-foreground leading-relaxed">
+                                  {line}
+                                </p>
+                              );
+                            }
+                          })}
+                        </div>
+                      );
+                    } else {
+                      // Regular paragraphs
+                      return (
+                        <p key={index} className="text-muted-foreground leading-relaxed">
+                          {section}
+                        </p>
+                      );
+                    }
+                  })}
                 </div>
               )}
 
@@ -96,23 +165,23 @@ export function ExpandableExperienceCard({
               {images.length > 0 && (
                 <div className="space-y-4">
                   <h4 className="text-lg font-semibold text-foreground">Galería del Proyecto</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
                     {images.map((image, index) => (
                       <div
                         key={index}
-                        className="relative group cursor-pointer overflow-hidden rounded-lg border border-border/50 hover:border-border transition-all duration-200"
+                        className="relative group cursor-pointer overflow-hidden rounded-lg border border-border/50 hover:border-border transition-all duration-200 flex-shrink-0"
                         onClick={() => openImageModal(image)}
                       >
                         <img
                           src={image}
                           alt={`${title} - Screenshot ${index + 1}`}
-                          className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-200"
+                          className="w-32 h-24 object-cover group-hover:scale-105 transition-transform duration-200"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.src = `data:image/svg+xml;base64,${btoa(`
-                              <svg width="200" height="128" xmlns="http://www.w3.org/2000/svg">
+                              <svg width="128" height="96" xmlns="http://www.w3.org/2000/svg">
                                 <rect width="100%" height="100%" fill="#374151"/>
-                                <text x="50%" y="50%" fill="#9CA3AF" text-anchor="middle" dy=".3em" style="font-family: system-ui, sans-serif; font-size: 12px;">
+                                <text x="50%" y="50%" fill="#9CA3AF" text-anchor="middle" dy=".3em" style="font-family: system-ui, sans-serif; font-size: 10px;">
                                   Screenshot ${index + 1}
                                 </text>
                               </svg>
@@ -120,7 +189,7 @@ export function ExpandableExperienceCard({
                           }}
                         />
                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-                          <div className="text-white text-sm font-medium">Ver completa</div>
+                          <div className="text-white text-xs font-medium">Ver ampliada</div>
                         </div>
                       </div>
                     ))}

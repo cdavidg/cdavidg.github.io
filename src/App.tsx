@@ -171,9 +171,12 @@ export default function App() {
                   technologies={["PHP", "WordPress", "MySQL", "JavaScript", "AJAX", "jQuery", "APIs REST", "SMTP", "IMAP"]}
                   url="https://qvaclick.com"
                   images={[
-                    "/qvaclick/screenshot1.jpg",
-                    "/qvaclick/screenshot2.jpg", 
-                    "/qvaclick/screenshot3.jpg"
+                    "/qvaclick/Screenshot 2025-10-11 183606.png",
+                    "/qvaclick/Screenshot 2025-10-11 183619.png",
+                    "/qvaclick/Screenshot 2025-10-11 183700.png",
+                    "/qvaclick/Screenshot 2025-10-11 183721.png",
+                    "/qvaclick/Screenshot 2025-10-11 183742.png",
+                    "/qvaclick/Screenshot 2025-10-11 184029.png"
                   ]}
                   isExpandable={true}
                 />
