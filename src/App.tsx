@@ -1,0 +1,256 @@
+import { useState } from "react";
+import { ImageWithFallback } from "./components/figma/ImageWithFallback";
+import { ExperienceCard } from "./components/ExperienceCard";
+import { ModernLanguageSelector } from "./components/ModernLanguageSelector";
+import { SectionHeader } from "./components/SectionHeader";
+import { TechStackSidebar } from "./components/TechStackSidebar";
+import { SoftSkillsSidebar } from "./components/SoftSkillsSidebar";
+import { CertificationItem } from "./components/CertificationItem";
+import { Separator } from "./components/ui/separator";
+import { Badge } from "./components/ui/badge";
+import { Mail, Linkedin, Github, GraduationCap, Phone } from "lucide-react";
+import { translations, Language } from "./lib/translations";
+import { getTechStackCategories } from "./lib/techStackData";
+
+export default function App() {
+  const [language, setLanguage] = useState<Language>("es");
+  const t = translations[language];
+
+  return (
+    <div className="min-h-screen bg-background dark">
+      <div className="container mx-auto px-4 py-8 max-w-[1600px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Left Sidebar - Profile */}
+          <aside className="lg:col-span-3 lg:sticky lg:top-8 lg:self-start">
+            <div className="bg-card border border-border rounded-lg p-6">
+              {/* Profile Image */}
+              <div className="mb-6">
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1737575655055-e3967cbefd03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBkZXZlbG9wZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjAxMjYwMzN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  alt="Profile"
+                  className="w-full aspect-square object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Name and Title */}
+              <h1 className="mb-2">Tu Nombre</h1>
+              <p className="text-muted-foreground mb-4">{t.title}</p>
+
+              <Separator className="my-4" />
+
+              {/* Contact Info */}
+              <div className="space-y-3">
+                <a
+                  href="tel:+1234567890"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>+1 234 567 890</span>
+                </a>
+                <a
+                  href="mailto:tu@email.com"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>tu@email.com</span>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  <span>GitHub</span>
+                </a>
+              </div>
+
+              <Separator className="my-4" />
+
+              {/* Quick Stats */}
+              <div className="space-y-3">
+                <div>
+                  <span className="text-muted-foreground text-sm">{t.specialization}</span>
+                  <p className="text-sm mt-1 text-foreground">{t.specializationDesc}</p>
+                </div>
+                <div>
+                  <span className="text-muted-foreground text-sm">{t.mainStack}</span>
+                  <p className="text-sm mt-1 text-foreground">Python, PHP, JavaScript</p>
+                </div>
+                <div>
+                  <span className="text-muted-foreground text-sm">{t.focus}</span>
+                  <p className="text-sm mt-1 text-foreground">{t.focusDesc}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Language Selector */}
+            <div className="mt-6">
+              <ModernLanguageSelector 
+                currentLanguage={language} 
+                onLanguageChange={(lang) => setLanguage(lang as Language)} 
+              />
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <main className="lg:col-span-6">
+            {/* Professional Summary Section */}
+            <section className="mb-8">
+              <div className="bg-card border border-border rounded-lg p-6">
+                <SectionHeader tag={t.professionalSummary}>
+                  {t.professionalSummary}
+                </SectionHeader>
+                <p className="text-foreground leading-relaxed" dir={language === "ar" ? "rtl" : "ltr"}>
+                  {t.summary}
+                </p>
+              </div>
+            </section>
+
+            {/* Education & Certifications Section */}
+            <section className="mb-8">
+              <div className="bg-card border border-border rounded-lg p-6">
+                <SectionHeader tag={t.education}>
+                  <GraduationCap className="w-6 h-6" />
+                  {t.education}
+                </SectionHeader>
+                
+                <div className="space-y-4">
+                  <CertificationItem
+                    type="degree"
+                    title={t.computerScience}
+                    institution={t.university}
+                    year="2015 - 2019"
+                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  />
+
+                  <CertificationItem
+                    type="certification"
+                    title={t.aiCertification}
+                    institution={t.deepLearningAI}
+                    year="2023"
+                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  />
+
+                  <CertificationItem
+                    type="certification"
+                    title={t.dockerCertification}
+                    institution="Docker Inc."
+                    year="2022"
+                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  />
+
+                  <CertificationItem
+                    type="certification"
+                    title={t.cloudProvider}
+                    institution="AWS / DigitalOcean"
+                    year="2021"
+                    certificateImage="https://images.unsplash.com/photo-1715000968071-e3b0068c718d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjZXJ0aWZpY2F0ZSUyMGRpcGxvbWF8ZW58MXx8fHwxNzYwMTc5OTUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  />
+                </div>
+              </div>
+            </section>
+
+            {/* Professional Experience Section */}
+            <section className="mb-8">
+              <div className="bg-card border border-border rounded-lg p-6">
+                <SectionHeader tag={t.professionalExperience}>
+                  {t.featuredProjects}
+                </SectionHeader>
+                
+                <ExperienceCard
+                  title="MindFlow"
+                  description={t.mindflowDesc}
+                  technologies={["Python", "FastAPI", "PostgreSQL", "Docker", "Redis"]}
+                />
+
+                <ExperienceCard
+                  title="QvaPay Plugin (WooCommerce)"
+                  description={t.qvapayDesc}
+                  technologies={["PHP", "WordPress", "WooCommerce", "APIs REST", "MySQL"]}
+                />
+
+                <ExperienceCard
+                  title="QvaClick"
+                  description={t.qvaclickDesc}
+                  technologies={["Python", "Django", "PostgreSQL", "JavaScript"]}
+                />
+
+                <ExperienceCard
+                  title="detect_2.0"
+                  description={t.detectDesc}
+                  technologies={["PyTorch", "YOLOv8", "OpenCV", "Docker", "FastAPI"]}
+                />
+
+                <ExperienceCard
+                  title="QvaMiner"
+                  description={t.qvaminerDesc}
+                  technologies={["Python", "TensorFlow", "PostgreSQL", "Celery"]}
+                />
+
+                <ExperienceCard
+                  title="swipe_4"
+                  description={t.swipeDesc}
+                  technologies={["Python", "Tesseract", "OpenCV", "Flask", "MongoDB"]}
+                />
+              </div>
+            </section>
+
+            {/* Extras Section */}
+            <section>
+              <div className="bg-card border border-border rounded-lg p-6">
+                <SectionHeader tag={t.extras}>
+                  {t.extras}
+                </SectionHeader>
+                
+                <div className="space-y-4">
+                  <div className="p-4 bg-muted/30 rounded-lg border border-border/50">
+                    <h4 className="mb-1 text-foreground">{t.extrasOpenSource}</h4>
+                    <p className="text-muted-foreground">
+                      {t.extrasOpenSourceDesc}
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-muted/30 rounded-lg border border-border/50">
+                    <h4 className="mb-1 text-foreground">{t.extrasAthletics}</h4>
+                    <p className="text-muted-foreground">
+                      {t.extrasAthleticsDesc}
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-muted/30 rounded-lg border border-border/50">
+                    <h4 className="mb-1 text-foreground">{t.extrasContinuousLearning}</h4>
+                    <p className="text-muted-foreground">
+                      {t.extrasContinuousLearningDesc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          {/* Right Sidebar - Tech Stack & Soft Skills */}
+          <aside className="lg:col-span-3 space-y-6">
+            <TechStackSidebar 
+              title={t.technicalStack}
+              categories={getTechStackCategories(t)}
+            />
+            <SoftSkillsSidebar 
+              title={t.softSkills}
+              t={t}
+            />
+          </aside>
+        </div>
+      </div>
+    </div>
+  );
+}
