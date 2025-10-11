@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { ExperienceCard } from "./components/ExperienceCard";
-import { ProjectModal } from "./components/ProjectModal";
+import { ExpandableExperienceCard } from "./components/ExpandableExperienceCard";
 import { ModernLanguageSelector } from "./components/ModernLanguageSelector";
 import { SectionHeader } from "./components/SectionHeader";
 import { TechStackSidebar } from "./components/TechStackSidebar";
@@ -15,24 +15,7 @@ import { getTechStackCategories } from "./lib/techStackData";
 
 export default function App() {
   const [language, setLanguage] = useState<Language>("es");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const t = translations[language];
-
-  // QvaClick project data
-  const qvaclickProject = {
-    title: "QvaClick",
-    description: t.qvaclickFullDesc,
-    technologies: [
-      "Python", "Django", "PostgreSQL", "JavaScript", "HTML/CSS", 
-      "REST APIs", "Celery", "Redis", "Docker", "Nginx"
-    ],
-    externalUrl: "https://qvaclick.com",
-    images: [
-      "/qvaclick/screenshot1.jpg",
-      "/qvaclick/screenshot2.jpg", 
-      "/qvaclick/screenshot3.jpg"
-    ]
-  };
 
   return (
     <div className="min-h-screen bg-background dark">
@@ -181,6 +164,20 @@ export default function App() {
                   {t.featuredProjects}
                 </SectionHeader>
                 
+                <ExpandableExperienceCard
+                  title="QvaClick"
+                  description={t.qvaclickDesc}
+                  fullDescription={t.qvaclickFullDesc}
+                  technologies={["PHP", "WordPress", "MySQL", "JavaScript", "AJAX", "jQuery", "APIs REST", "SMTP", "IMAP"]}
+                  url="https://qvaclick.com"
+                  images={[
+                    "/qvaclick/screenshot1.jpg",
+                    "/qvaclick/screenshot2.jpg", 
+                    "/qvaclick/screenshot3.jpg"
+                  ]}
+                  isExpandable={true}
+                />
+
                 <ExperienceCard
                   title="MindFlow"
                   description={t.mindflowDesc}
@@ -191,14 +188,6 @@ export default function App() {
                   title="QvaPay Plugin (WooCommerce)"
                   description={t.qvapayDesc}
                   technologies={["PHP", "WordPress", "WooCommerce", "APIs REST", "MySQL"]}
-                />
-
-                <ExperienceCard
-                  title="QvaClick"
-                  description={t.qvaclickDesc}
-                  technologies={["Python", "Django", "PostgreSQL", "JavaScript"]}
-                  onClick={() => setIsModalOpen(true)}
-                  isClickable={true}
                 />
 
                 <ExperienceCard
@@ -267,17 +256,6 @@ export default function App() {
           </aside>
         </div>
       </div>
-
-      {/* Project Modal */}
-      <ProjectModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title={qvaclickProject.title}
-        description={qvaclickProject.description}
-        technologies={qvaclickProject.technologies}
-        url={qvaclickProject.externalUrl}
-        images={qvaclickProject.images}
-      />
     </div>
   );
 }
