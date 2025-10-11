@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Ejecutar en push a la rama main
+  push:
+    branches: [ main ]
+  # Permitir ejecución manual desde la interfaz de GitHub
+  workflow_dispatch:
+
+# Establecer permisos GITHUB_TOKEN para permitir deployment a GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Solo permitir un deployment concurrente, saltar las ejecuciones en cola entre la ejecución en progreso y la más reciente
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: npm
+      
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build with Astro
+        run: |
+          npm run build \
+            --if-present
+        env:
+          # Para usar rutas relativas en GitHub Pages
+          PUBLIC_BASE_URL: ${{ steps.pages.outputs.base_url }}
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
