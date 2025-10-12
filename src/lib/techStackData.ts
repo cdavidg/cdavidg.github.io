@@ -73,6 +73,8 @@ export const getTechStackCategories = (t: any) => [
       { name: 'MySQL', color: techColors.mysql, percentage: 85 },
       { name: 'Redis', color: techColors.redis, percentage: 75 },
       { name: 'MongoDB', color: techColors.mongodb, percentage: 70 },
+      { name: 'SQLite', color: techColors.sql, percentage: 80 },
+      { name: 'MariaDB', color: techColors.mysql, percentage: 70 },
     ]
   },
   {
