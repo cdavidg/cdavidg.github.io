@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { OptimizedThumbnail } from "./OptimizedThumbnail";
+import { getFullSizeUrl } from "../lib/imageUtils";
 
 interface ExpandableExperienceCardProps {
   title: string;
@@ -221,7 +222,7 @@ export function ExpandableExperienceCard({
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-8 md:p-16"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={closeImageModal}
           style={{ 
             backgroundColor: 'rgba(0, 0, 0, 0.85)',
@@ -229,23 +230,22 @@ export function ExpandableExperienceCard({
             WebkitBackdropFilter: 'blur(8px)'
           }}
         >
-          {/* Container with padding for button space */}
-          <div className="relative w-full max-w-4xl">
-            {/* Close Button - Always outside at top */}
+          <div className="relative max-w-3xl max-h-[85vh] w-full">
+            {/* Close Button - Outside top-right corner */}
             <button
               onClick={closeImageModal}
-              className="absolute -top-16 right-0 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110"
+              className="absolute -top-12 right-0 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110 z-20"
               aria-label="Cerrar imagen"
             >
               <X className="w-6 h-6" />
             </button>
             
-            {/* Image - constrained to leave space for button */}
-            <div className="w-full max-h-[75vh] flex items-center justify-center">
+            {/* Image Container */}
+            <div className="relative bg-black/20 rounded-lg p-2">
               <img
-                src={selectedImage}
+                src={getFullSizeUrl(selectedImage)}
                 alt="Imagen ampliada"
-                className="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl"
+                className="w-full h-full object-contain rounded-lg shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
