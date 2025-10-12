@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 
@@ -37,6 +37,28 @@ export function ExpandableExperienceCard({
   const closeImageModal = () => {
     setSelectedImage(null);
   };
+
+  // Close modal with Escape key
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && selectedImage) {
+        closeImageModal();
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
 
   return (
     <>
@@ -216,21 +238,28 @@ export function ExpandableExperienceCard({
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
           onClick={closeImageModal}
         >
-          <div className="relative max-w-4xl max-h-full">
+          <div className="relative max-w-3xl max-h-[85vh] w-full">
             <img
               src={selectedImage}
               alt="Imagen ampliada"
-              className="max-w-full max-h-full object-contain rounded-lg"
+              className="w-full h-full object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
             />
+            {/* Close Button */}
             <button
               onClick={closeImageModal}
-              className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors"
+              className="absolute -top-4 -right-4 text-white bg-red-500 hover:bg-red-600 rounded-full p-2 transition-colors shadow-lg"
+              aria-label="Cerrar imagen"
             >
-              <ChevronUp className="w-6 h-6 rotate-45" />
+              <X className="w-5 h-5" />
             </button>
+            {/* Image Info */}
+            <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 rounded-b-lg">
+              <p className="text-sm text-center">Click fuera de la imagen o presiona X para cerrar</p>
+            </div>
           </div>
         </div>
       )}
