@@ -126,6 +126,16 @@ export const getTechStackCategories = (t: any) => [
     ]
   },
   {
+    title: t.artificialIntelligence,
+    items: [
+      { name: 'PyTorch', color: techColors.pytorch, percentage: 90 },
+      { name: 'TensorFlow', color: techColors.tensorflow, percentage: 85 },
+      { name: 'OpenCV', color: techColors.opencv, percentage: 92 },
+      { name: 'YOLO', color: techColors.yolo, percentage: 88 },
+    ]
+  },
+  
+  {
     title: t.cmsFrameworks || 'CMS & Web Frameworks',
     items: [
       { name: 'WordPress', color: techColors.wordpress, percentage: 90 },
@@ -151,15 +161,7 @@ export const getTechStackCategories = (t: any) => [
       { name: 'MariaDB', color: techColors.mariadb, percentage: 75 },
     ]
   },
-  {
-    title: t.artificialIntelligence,
-    items: [
-      { name: 'PyTorch', color: techColors.pytorch, percentage: 90 },
-      { name: 'TensorFlow', color: techColors.tensorflow, percentage: 85 },
-      { name: 'OpenCV', color: techColors.opencv, percentage: 92 },
-      { name: 'YOLO', color: techColors.yolo, percentage: 88 },
-    ]
-  },
+  
   {
     title: t.devops || 'DevOps & Cloud',
     items: [
