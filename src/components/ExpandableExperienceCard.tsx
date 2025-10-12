@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import { getThumbnailUrl, getFullSizeUrl, generatePlaceholder } from "../lib/imageUtils";
 
 interface ExpandableExperienceCardProps {
   title: string;
@@ -194,23 +195,19 @@ export function ExpandableExperienceCard({
                         className="relative group cursor-pointer overflow-hidden rounded-lg border border-border/50 hover:border-border transition-all duration-200 flex-shrink-0"
                         onClick={() => openImageModal(image)}
                       >
+                        {/* Optimized thumbnail with placeholder */}
                         <img
-                          src={image}
+                          src={getThumbnailUrl(image)}
                           alt={`${title} - Screenshot ${index + 1}`}
                           className="w-32 h-24 object-cover group-hover:scale-105 transition-transform duration-200"
+                          loading="lazy"
+                          decoding="async"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src = `data:image/svg+xml;base64,${btoa(`
-                              <svg width="128" height="96" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="100%" height="100%" fill="#374151"/>
-                                <text x="50%" y="50%" fill="#9CA3AF" text-anchor="middle" dy=".3em" style="font-family: system-ui, sans-serif; font-size: 10px;">
-                                  Screenshot ${index + 1}
-                                </text>
-                              </svg>
-                            `)}`;
+                            target.src = generatePlaceholder(128, 96, `Screenshot ${index + 1}`);
                           }}
                         />
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center z-20">
                           <div className="text-white text-xs font-medium">Ver ampliada</div>
                         </div>
                       </div>
@@ -238,28 +235,24 @@ export function ExpandableExperienceCard({
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={closeImageModal}
         >
           <div className="relative max-w-3xl max-h-[85vh] w-full">
             <img
-              src={selectedImage}
+              src={getFullSizeUrl(selectedImage)}
               alt="Imagen ampliada"
               className="w-full h-full object-contain rounded-lg shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
-            {/* Close Button */}
+            {/* Close Button - Top Right Corner */}
             <button
               onClick={closeImageModal}
-              className="absolute -top-4 -right-4 text-white bg-red-500 hover:bg-red-600 rounded-full p-2 transition-colors shadow-lg"
+              className="absolute top-4 right-4 text-white bg-red-500 hover:bg-red-600 rounded-full p-2 transition-colors shadow-lg z-10"
               aria-label="Cerrar imagen"
             >
               <X className="w-5 h-5" />
             </button>
-            {/* Image Info */}
-            <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-3 rounded-b-lg">
-              <p className="text-sm text-center">Click fuera de la imagen o presiona X para cerrar</p>
-            </div>
           </div>
         </div>
       )}
