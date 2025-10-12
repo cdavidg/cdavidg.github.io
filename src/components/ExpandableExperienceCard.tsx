@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { ChevronDown, ChevronUp, ExternalLink, X } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import { getThumbnailUrl, getFullSizeUrl, generatePlaceholder } from "../lib/imageUtils";
+import { OptimizedThumbnail } from "./OptimizedThumbnail";
+import { getFullSizeUrl } from "../lib/imageUtils";
 
 interface ExpandableExperienceCardProps {
   title: string;
@@ -190,27 +191,13 @@ export function ExpandableExperienceCard({
                   <h4 className="text-lg font-semibold text-foreground">Galería del Proyecto</h4>
                   <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
                     {images.map((image, index) => (
-                      <div
+                      <OptimizedThumbnail
                         key={index}
-                        className="relative group cursor-pointer overflow-hidden rounded-lg border border-border/50 hover:border-border transition-all duration-200 flex-shrink-0"
+                        src={image}
+                        alt={`${title} - Screenshot ${index + 1}`}
                         onClick={() => openImageModal(image)}
-                      >
-                        {/* Optimized thumbnail with placeholder */}
-                        <img
-                          src={getThumbnailUrl(image)}
-                          alt={`${title} - Screenshot ${index + 1}`}
-                          className="w-32 h-24 object-cover group-hover:scale-105 transition-transform duration-200"
-                          loading="lazy"
-                          decoding="async"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = generatePlaceholder(128, 96, `Screenshot ${index + 1}`);
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center z-20">
-                          <div className="text-white text-xs font-medium">Ver ampliada</div>
-                        </div>
-                      </div>
+                        index={index}
+                      />
                     ))}
                   </div>
                 </div>
@@ -235,24 +222,33 @@ export function ExpandableExperienceCard({
       {/* Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={closeImageModal}
+          style={{ 
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)'
+          }}
         >
           <div className="relative max-w-3xl max-h-[85vh] w-full">
-            <img
-              src={getFullSizeUrl(selectedImage)}
-              alt="Imagen ampliada"
-              className="w-full h-full object-contain rounded-lg shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-            {/* Close Button - Top Right Corner */}
+            {/* Close Button - Outside top-right corner */}
             <button
               onClick={closeImageModal}
-              className="absolute top-4 right-4 text-white bg-red-500 hover:bg-red-600 rounded-full p-2 transition-colors shadow-lg z-10"
+              className="absolute -top-12 right-0 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110 z-20"
               aria-label="Cerrar imagen"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
+            
+            {/* Image Container */}
+            <div className="relative bg-black/20 rounded-lg p-2">
+              <img
+                src={getFullSizeUrl(selectedImage)}
+                alt="Imagen ampliada"
+                className="w-full h-full object-contain rounded-lg shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
           </div>
         </div>
       )}

@@ -3,6 +3,7 @@ import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { ExperienceCard } from "./components/ExperienceCard";
 import { ExpandableExperienceCard } from "./components/ExpandableExperienceCard";
 import { ModernLanguageSelector } from "./components/ModernLanguageSelector";
+import { VisitCounter } from "./components/VisitCounter";
 import { SectionHeader } from "./components/SectionHeader";
 import { TechStackSidebar } from "./components/TechStackSidebar";
 import { SoftSkillsSidebar } from "./components/SoftSkillsSidebar";
@@ -25,12 +26,13 @@ export default function App() {
           <aside className="lg:col-span-3 lg:sticky lg:top-8 lg:self-start">
             <div className="bg-card border border-border rounded-lg p-6">
               {/* Profile Image */}
-              <div className="mb-6">
+              <div className="mb-6 relative">
                 <ImageWithFallback
                   src="/profile.jpg"
                   alt="David Guerra Profile"
                   className="w-full aspect-square object-cover rounded-lg"
                 />
+                <VisitCounter />
               </div>
 
               {/* Name and Title */}
