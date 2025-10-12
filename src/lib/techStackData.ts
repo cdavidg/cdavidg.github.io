@@ -24,6 +24,10 @@ export const techColors = {
   express: '#000000',
   nestjs: '#E0234E',
   
+  // CMS & Web Frameworks
+  woocommerce: '#96588A',
+  elementor: '#92003B',
+  
   // Mobile
   flutter: '#02569B',
   reactnative: '#61DAFB',
@@ -118,6 +122,14 @@ export const getTechStackCategories = (t: any) => [
       { name: 'Laravel', color: techColors.laravel, percentage: 75 },
       { name: 'Express', color: techColors.express, percentage: 70 },
       { name: 'NestJS', color: techColors.nestjs, percentage: 65 },
+    ]
+  },
+  {
+    title: t.cmsFrameworks || 'CMS & Web Frameworks',
+    items: [
+      { name: 'WordPress', color: techColors.wordpress, percentage: 90 },
+      { name: 'WooCommerce', color: techColors.woocommerce, percentage: 85 },
+      { name: 'Elementor', color: techColors.elementor, percentage: 75 },
     ]
   },
   {
