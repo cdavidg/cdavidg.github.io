@@ -24,14 +24,16 @@ export const translations = {
     
     // Technical Stack
     programmingLanguages: "Lenguajes de Programación",
+    frontendFrameworks: "Frontend",
+    backendFrameworks: "Backend",
+    mobileFrameworks: "Mobile",
     databases: "Bases de Datos",
-    pythonFrameworks: "Frameworks Python",
-    webFrameworks: "Frameworks Web",
-    webIntegrations: "Desarrollo Web / Integraciones",
-    infrastructure: "Infraestructura & DevOps",
-    tools: "Herramientas",
     artificialIntelligence: "Inteligencia Artificial",
-    computerVision: "Visión por Computadora",
+    devops: "DevOps & Cloud",
+    queueWorkers: "Queue & Workers",
+    testing: "Testing",
+    monitoring: "Monitoreo",
+    tools: "Herramientas",
     
     // Projects
     featuredProjects: "Proyectos Destacados",
@@ -141,14 +143,16 @@ Desarrollo de soluciones personalizadas sobre WordPress orientadas a la integrac
     
     // Technical Stack
     programmingLanguages: "Programming Languages",
+    frontendFrameworks: "Frontend",
+    backendFrameworks: "Backend",
+    mobileFrameworks: "Mobile",
     databases: "Databases",
-    pythonFrameworks: "Python Frameworks",
-    webFrameworks: "Web Frameworks",
-    webIntegrations: "Web Development / Integrations",
-    infrastructure: "Infrastructure & DevOps",
-    tools: "Tools",
     artificialIntelligence: "Artificial Intelligence",
-    computerVision: "Computer Vision",
+    devops: "DevOps & Cloud",
+    queueWorkers: "Queue & Workers",
+    testing: "Testing",
+    monitoring: "Monitoring",
+    tools: "Tools",
     
     // Projects
     featuredProjects: "Featured Projects",
@@ -224,14 +228,16 @@ Desarrollo de soluciones personalizadas sobre WordPress orientadas a la integrac
     
     // Technical Stack
     programmingLanguages: "لغات البرمجة",
+    frontendFrameworks: "الواجهة الأمامية",
+    backendFrameworks: "الخادم الخلفي",
+    mobileFrameworks: "التطبيقات المحمولة",
     databases: "قواعد البيانات",
-    pythonFrameworks: "أطر Python",
-    webFrameworks: "أطر الويب",
-    webIntegrations: "تطوير الويب / التكاملات",
-    infrastructure: "البنية التحتية و DevOps",
-    tools: "الأدوات",
     artificialIntelligence: "الذكاء الاصطناعي",
-    computerVision: "رؤية الكمبيوتر",
+    devops: "DevOps والسحابة",
+    queueWorkers: "قوائم الانتظار والعمال",
+    testing: "الاختبار",
+    monitoring: "المراقبة",
+    tools: "الأدوات",
     
     // Projects
     featuredProjects: "المشاريع المميزة",
