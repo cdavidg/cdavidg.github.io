@@ -230,25 +230,23 @@ export function ExpandableExperienceCard({
             WebkitBackdropFilter: 'blur(8px)'
           }}
         >
-          <div className="relative max-w-3xl max-h-[85vh] w-full">
-            {/* Close Button - Outside top-right corner */}
-            <button
-              onClick={closeImageModal}
-              className="absolute -top-20 right-0 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110 z-20"
-              aria-label="Cerrar imagen"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            
-            {/* Image Container */}
-            <div className="relative bg-black/20 rounded-lg p-2">
-              <img
-                src={getFullSizeUrl(selectedImage)}
-                alt="Imagen ampliada"
-                className="w-full h-full object-contain rounded-lg shadow-2xl"
-                onClick={(e) => e.stopPropagation()}
-              />
-            </div>
+          {/* Close Button - Fixed to top-right of viewport */}
+          <button
+            onClick={closeImageModal}
+            className="fixed top-4 right-4 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110 z-[60]"
+            aria-label="Cerrar imagen"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          
+          {/* Image Container */}
+          <div className="relative max-w-3xl max-h-[85vh] w-full bg-black/20 rounded-lg p-2">
+            <img
+              src={getFullSizeUrl(selectedImage)}
+              alt="Imagen ampliada"
+              className="w-full h-full object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>
       )}

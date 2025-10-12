@@ -47,7 +47,11 @@ export const getTechStackCategories = (t: any) => [
       { name: 'Python', color: techColors.python, percentage: 95 },
       { name: 'PHP', color: techColors.php, percentage: 80 },
       { name: 'JavaScript', color: techColors.javascript, percentage: 70 },
+      { name: 'HTML', color: '#e34c26', percentage: 70 },
+      { name: 'CSS', color: '#563d7c', percentage: 65 },
       { name: 'SQL', color: techColors.sql, percentage: 85 },
+      { name: 'TypeScript', color: techColors.javascript, percentage: 60 },
+      
       { name: 'Bash', color: techColors.bash, percentage: 75 },
     ]
   },
