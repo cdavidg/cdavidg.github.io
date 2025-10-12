@@ -7,7 +7,7 @@ interface OptimizedThumbnailProps {
   index: number;
 }
 
-export function OptimizedThumbnail({ src, alt, onClick, index }: OptimizedThumbnailProps) {
+export function OptimizedThumbnail({ src, alt, onClick }: OptimizedThumbnailProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -16,10 +16,10 @@ export function OptimizedThumbnail({ src, alt, onClick, index }: OptimizedThumbn
       className="relative group cursor-pointer overflow-hidden rounded-lg border border-border/50 hover:border-border transition-all duration-200 flex-shrink-0 w-32 h-24 bg-muted/20"
       onClick={onClick}
     >
-      {/* Loading skeleton */}
+      {/* Simple loading indicator */}
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-muted/30 animate-pulse flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="absolute inset-0 bg-muted/30 flex items-center justify-center">
+          <div className="text-xs text-muted-foreground">Cargando...</div>
         </div>
       )}
 
