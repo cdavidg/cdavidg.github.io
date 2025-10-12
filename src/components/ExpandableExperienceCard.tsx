@@ -234,7 +234,7 @@ export function ExpandableExperienceCard({
             {/* Close Button - Outside top-right corner */}
             <button
               onClick={closeImageModal}
-              className="absolute -top-12 right-0 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110 z-20"
+              className="absolute -top-20 right-0 text-white bg-red-500 hover:bg-red-600 rounded-full p-3 transition-all duration-200 shadow-2xl hover:scale-110 z-20"
               aria-label="Cerrar imagen"
             >
               <X className="w-6 h-6" />
