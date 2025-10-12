@@ -93,13 +93,14 @@ export const getTechStackCategories = (t: any) => [
     title: t.programmingLanguages,
     items: [
       { name: 'Python', color: techColors.python, percentage: 95 },
+      { name: 'PHP', color: techColors.php, percentage: 80 },
       { name: 'TypeScript', color: techColors.typescript, percentage: 85 },
       { name: 'JavaScript', color: techColors.javascript, percentage: 90 },
-      { name: 'PHP', color: techColors.php, percentage: 80 },
       { name: 'SQL', color: techColors.sql, percentage: 85 },
       { name: 'Bash', color: techColors.bash, percentage: 75 },
       { name: 'HTML', color: '#e34c26', percentage: 90 },
       { name: 'CSS', color: techColors.css, percentage: 85 },
+      { name: 'C++', color: '#f34b7d', percentage: 70}
     ]
   },
   {
@@ -128,8 +129,8 @@ export const getTechStackCategories = (t: any) => [
     title: t.cmsFrameworks || 'CMS & Web Frameworks',
     items: [
       { name: 'WordPress', color: techColors.wordpress, percentage: 90 },
-      { name: 'WooCommerce', color: techColors.woocommerce, percentage: 85 },
-      { name: 'Elementor', color: techColors.elementor, percentage: 75 },
+      { name: 'Joomla', color: techColors.woocommerce, percentage: 85 },
+      { name: 'Drupal', color: techColors.elementor, percentage: 75 },
     ]
   },
   {
