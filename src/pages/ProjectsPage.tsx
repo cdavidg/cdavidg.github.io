@@ -37,52 +37,55 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#0d1117', color: '#c9d1d9' }}>
-      <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="min-h-screen" style={{ backgroundColor: '#0d1117', color: '#c9d1d9' }}>
+      <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2" style={{ color: '#e6edf3' }}>
+        <header className="mb-10">
+          <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-3" style={{ color: '#e6edf3' }}>
             {t.featuredProjects || 'Proyectos'}
           </h1>
-          <p style={{ color: '#7d8590' }}>
+          <p className="text-sm sm:text-base" style={{ color: '#7d8590' }}>
             {language === 'es' && 'Mis proyectos más destacados'}
             {language === 'en' && 'My featured projects'}
             {language === 'ar' && 'مشاريعي المميزة'}
           </p>
-        </div>
+        </header>
 
         {/* Projects Grid */}
-        <div className="grid gap-4">
+        <section className="grid gap-5">
           {projects.map((project) => (
-            <div
+            <article
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className="p-6 rounded-lg border cursor-pointer transition-all hover:shadow-lg"
+              className="p-6 sm:p-7 rounded-lg border cursor-pointer transition-colors"
               style={{
                 backgroundColor: '#161b22',
-                borderColor: '#30363d'
+                borderColor: '#30363d',
+                boxShadow: '0 8px 24px rgba(1, 4, 9, 0.6)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#58a6ff';
+                e.currentTarget.style.backgroundColor = '#1b2230';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = '#30363d';
+                e.currentTarget.style.backgroundColor = '#161b22';
               }}
             >
-              <div className="flex items-start justify-between mb-3">
+              <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
-                  <h2 className="text-xl font-semibold mb-2 flex items-center gap-2" style={{ color: '#58a6ff' }}>
+                  <h2 className="text-xl sm:text-2xl font-semibold mb-2 flex items-center gap-2" style={{ color: '#58a6ff' }}>
                     {project.name}
                     <ChevronRight className="w-5 h-5" />
                   </h2>
-                  <p className="text-sm mb-3" style={{ color: '#7d8590' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: '#7d8590' }}>
                     {project.description}
                   </p>
                 </div>
               </div>
 
               {/* Topics */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-5">
                 {project.topics.map((topic) => (
                   <span
                     key={topic}
@@ -113,12 +116,12 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
                   {language === 'ar' && `محدث في ${project.updatedAt}`}
                 </span>
               </div>
-            </div>
+            </article>
           ))}
-        </div>
+        </section>
 
         {/* Coming Soon */}
-        <div className="mt-8 text-center text-sm" style={{ color: '#7d8590' }}>
+        <div className="mt-10 text-center text-sm" style={{ color: '#7d8590' }}>
           <p>
             {language === 'es' && '🚀 Más proyectos próximamente...'}
             {language === 'en' && '🚀 More projects coming soon...'}
@@ -138,7 +141,7 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-lg"
+            className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg"
             style={{
               backgroundColor: '#0d1117',
               border: '1px solid #30363d'
@@ -171,9 +174,9 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
             </div>
 
             {/* Modal Content */}
-            <div className="p-6">
+            <div className="p-6 sm:p-8 space-y-8">
               {/* Topics */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2">
                 {selectedProject.topics.map((topic) => (
                   <span
                     key={topic}
@@ -190,17 +193,20 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
               </div>
 
               {/* Full Description */}
-              <div className="mb-6 p-4 rounded-lg" style={{
-                backgroundColor: '#161b22',
-                border: '1px solid #30363d'
-              }}>
-                <pre className="whitespace-pre-wrap text-sm font-sans leading-relaxed" style={{ color: '#c9d1d9' }}>
+              <article
+                className="p-4 sm:p-6 rounded-lg border"
+                style={{
+                  backgroundColor: '#161b22',
+                  borderColor: '#30363d'
+                }}
+              >
+                <pre className="whitespace-pre-wrap text-sm sm:text-base font-sans leading-relaxed" style={{ color: '#c9d1d9' }}>
                   {selectedProject.fullDescription}
                 </pre>
-              </div>
+              </article>
 
               {/* Actions */}
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={selectedProject.url}
                   target="_blank"
