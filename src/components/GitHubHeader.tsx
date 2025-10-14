@@ -106,7 +106,7 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
               </div>
             </div>
 
-            <nav className="flex flex-wrap items-center gap-2 sm:gap-4">
+            <nav className="flex flex-wrap items-center gap-2 sm:gap-4" style={{ paddingLeft: '10px' }}>
               {tabs.map((tab) => {
                 const Icon = tab.Icon;
                 return (
