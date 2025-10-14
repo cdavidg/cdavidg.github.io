@@ -71,14 +71,15 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
             <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
               <h1
                 className="text-2xl sm:text-3xl font-semibold tracking-tight"
-                style={{ color: '#e6edf3', paddingLeft: '10px' }}
+                style={{ color: '#e6edf3', paddingLeft: '10px', paddingTop: '25px', paddingRight: '10px', fontSize: '20px' }}
               >
                 CV David Guerra
               </h1>
 
               <div
                 ref={languageSelectorRef}
-                className="absolute right-0 top-[25px] self-end sm:static sm:self-auto sm:top-auto"
+                className="absolute right-0 top-[25px] self-end sm:static sm:self-auto sm:top-auto" 
+                style={{ zIndex: 10, paddingTop: '25px', paddingRight: '20px', paddingRight: '10px' }}
               >
                 <div className="relative">
                   <button
