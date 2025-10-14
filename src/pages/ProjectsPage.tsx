@@ -52,7 +52,7 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
         </header>
 
         {/* Projects Grid */}
-        <section className="grid gap-5">
+        <section className="grid gap-5" style={{ paddingTop: '10px' }}>
           {projects.map((project) => (
             <article
               key={project.id}

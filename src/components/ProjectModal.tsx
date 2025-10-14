@@ -44,8 +44,8 @@ export function ProjectModal({
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col bg-card border-border">
-          <DialogHeader className="flex-shrink-0">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col bg-card border-border p-0">
+          <DialogHeader className="flex-shrink-0 px-6 py-5 border-b border-border">
             <div className="flex items-center justify-between">
               <DialogTitle className="text-2xl font-bold text-foreground">{title}</DialogTitle>
               <Button
@@ -72,11 +72,11 @@ export function ProjectModal({
             )}
           </DialogHeader>
 
-          <div className="flex-1 overflow-y-auto space-y-6 pr-2">
+          <div className="flex-1 overflow-y-auto space-y-6 px-6 py-6">
             {/* Technologies */}
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-3">Stack Tecnológico</h3>
-              <div className="flex flex-wrap gap-2" style={{padding: '0px 25px 25px 0px'}}>
+              <div className="flex flex-wrap gap-2">
                 {technologies.map((tech, index) => (
                   <Badge key={index} variant="secondary" className="bg-muted text-foreground">
                     {tech}
@@ -88,7 +88,7 @@ export function ProjectModal({
             {/* Description */}
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-3">Descripción del Proyecto</h3>
-              <div className="text-muted-foreground whitespace-pre-line leading-relaxed">
+              <div className="text-muted-foreground whitespace-pre-wrap leading-relaxed break-words">
                 {fullDescription || description}
               </div>
             </div>
