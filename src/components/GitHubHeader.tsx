@@ -47,23 +47,23 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
               <h1
                 className="text-2xl sm:text-3xl font-semibold tracking-tight"
-                style={{ color: '#e6edf3' }}
+                style={{ color: '#e6edf3', marginTop: '25px', paddingLeft: '10px', fontSize: '20px' }}
               >
                 CV David Guerra
               </h1>
 
               <div className="relative group" ref={languageSelectorRef}>
                 <button
-                  className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm rounded-md transition-colors hover:bg-[#21262d] focus:bg-[#21262d] focus:outline-none"
-                  style={{ color: '#e6edf3' }}
-                  type="button"
-                  data-lang-trigger="true"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm rounded-md transition-colors hover:bg-[#21262d] focus:bg-[#21262d] focus:outline-none"
+                    style={{ color: '#e6edf3', marginLeft: 'auto', marginTop: 'auto', justifyContent: 'flex-end' }}
+                    type="button"
+                    data-lang-trigger="true"
                 >
-                  <Globe className="w-4 h-4" />
-                  <span className="hidden sm:inline">{activeLanguage.flag}</span>
-                  <span className="text-sm font-medium" style={{ color: '#7d8590' }}>
-                    {activeLanguage.label}
-                  </span>
+                    <Globe className="w-4 h-4" />
+                    <span className="hidden sm:inline">{activeLanguage.flag}</span>
+                    <span className="text-sm font-medium" style={{ color: '#7d8590' }}>
+                        {activeLanguage.label}
+                    </span>
                 </button>
 
                 {/* Dropdown */}
