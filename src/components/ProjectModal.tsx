@@ -76,7 +76,7 @@ export function ProjectModal({
             {/* Technologies */}
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-3">Stack Tecnológico</h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2" style={{padding: '0px 25px 25px 0px'}}>
                 {technologies.map((tech, index) => (
                   <Badge key={index} variant="secondary" className="bg-muted text-foreground">
                     {tech}
