@@ -10,16 +10,9 @@ export function DemosPage({ language }: DemosPageProps) {
     <div className="min-h-screen bg-background dark text-foreground">
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="text-center">
-          {/* Icon */}
-          <div className="mb-6 flex justify-center">
-            <div className="relative">
-              <Gamepad2 className="w-24 h-24 text-gray-600" />
-              <Sparkles className="w-8 h-8 text-yellow-500 absolute -top-2 -right-2 animate-pulse" />
-            </div>
-          </div>
-
+                    
           {/* Title */}
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4" style={{ paddingTop: '40px' }}>
             {language === 'es' && 'Demos Interactivas'}
             {language === 'en' && 'Interactive Demos'}
             {language === 'ar' && 'عروض تفاعلية'}
@@ -49,7 +42,7 @@ export function DemosPage({ language }: DemosPageProps) {
           </div>
 
           {/* Info Box */}
-          <div className="mt-12 p-6 bg-[#161b22] border border-gray-700 rounded-lg max-w-2xl mx-auto">
+          <div className="mt-12 p-6 bg-[#161b22] border border-gray-700 rounded-lg max-w-2xl mx-auto" style={{ marginTop: '60px' }}>
             <h3 className="text-lg font-semibold text-white mb-3">
               {language === 'es' && '¿Qué esperar?'}
               {language === 'en' && 'What to expect?'}

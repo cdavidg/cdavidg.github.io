@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, ChevronRight, X } from 'lucide-react';
+import { ExternalLink, ChevronRight, ArrowLeft } from 'lucide-react';
 import { translations, Language } from '../lib/translations';
 
 interface ProjectsPageProps {
@@ -36,6 +36,129 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
     },
   ];
 
+  // If a project is selected, show project detail view
+  if (selectedProject) {
+    return (
+      <div className="min-h-screen" style={{ backgroundColor: '#0d1117', color: '#c9d1d9' }}>
+        <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+          {/* Back Button */}
+          <button
+            onClick={() => setSelectedProject(null)}
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg text-sm font-medium transition-colors"
+            style={{
+              color: '#7d8590',
+              backgroundColor: 'transparent',
+              border: '1px solid #30363d'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#58a6ff';
+              e.currentTarget.style.color = '#e6edf3';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#30363d';
+              e.currentTarget.style.color = '#7d8590';
+            }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {language === 'es' && 'Volver a proyectos'}
+            {language === 'en' && 'Back to projects'}
+            {language === 'ar' && 'العودة إلى المشاريع'}
+          </button>
+
+          {/* Project Header */}
+          <header className="mb-8">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4" style={{ color: '#e6edf3' }}>
+              {selectedProject.name}
+            </h1>
+            
+            {/* Topics */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {selectedProject.topics.map((topic) => (
+                <span
+                  key={topic}
+                  className="px-3 py-1 text-sm rounded-full"
+                  style={{
+                    backgroundColor: 'rgba(88, 166, 255, 0.1)',
+                    color: '#58a6ff',
+                    border: '1px solid rgba(88, 166, 255, 0.3)'
+                  }}
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+
+            {/* Metadata */}
+            <div className="flex items-center gap-4 text-sm mb-6" style={{ color: '#7d8590' }}>
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: selectedProject.languageColor }}
+                />
+                <span>{selectedProject.language}</span>
+              </div>
+              <span>
+                {language === 'es' && `Actualizado en ${selectedProject.updatedAt}`}
+                {language === 'en' && `Updated in ${selectedProject.updatedAt}`}
+                {language === 'ar' && `محدث في ${selectedProject.updatedAt}`}
+              </span>
+            </div>
+
+            {/* Action Button */}
+            <a
+              href={selectedProject.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
+              style={{
+                backgroundColor: '#238636',
+                color: '#ffffff'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#2ea043';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#238636';
+              }}
+            >
+              <ExternalLink className="w-4 h-4" />
+              {language === 'es' && 'Visitar Sitio'}
+              {language === 'en' && 'Visit Site'}
+              {language === 'ar' && 'زيارة الموقع'}
+            </a>
+          </header>
+
+          {/* Project Description */}
+          <article
+            className="p-6 sm:p-8 rounded-lg border mb-8"
+            style={{
+              backgroundColor: '#161b22',
+              borderColor: '#30363d'
+            }}
+          >
+            <h2 className="text-xl font-semibold mb-4" style={{ color: '#e6edf3' }}>
+              {language === 'es' && 'Descripción del Proyecto'}
+              {language === 'en' && 'Project Description'}
+              {language === 'ar' && 'وصف المشروع'}
+            </h2>
+            <div 
+              className="text-base leading-relaxed"
+              style={{ 
+                color: '#c9d1d9',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word'
+              }}
+            >
+              {selectedProject.fullDescription}
+            </div>
+          </article>
+        </div>
+      </div>
+    );
+  }
+
+  // Default view: show projects list
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#0d1117', color: '#c9d1d9' }}>
       <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
@@ -129,110 +252,6 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
           </p>
         </div>
       </div>
-
-      {/* Modal */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            backdropFilter: 'blur(4px)'
-          }}
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg"
-            style={{
-              backgroundColor: '#0d1117',
-              border: '1px solid #30363d'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="sticky top-0 flex items-center justify-between p-6 border-b" style={{
-              backgroundColor: '#0d1117',
-              borderColor: '#30363d'
-            }}>
-              <h2 className="text-2xl font-bold" style={{ color: '#e6edf3' }}>
-                {selectedProject.name}
-              </h2>
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="p-2 rounded-lg transition-colors"
-                style={{ color: '#7d8590' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#21262d';
-                  e.currentTarget.style.color = '#e6edf3';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = '#7d8590';
-                }}
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-6 sm:p-8 space-y-8">
-              {/* Topics */}
-              <div className="flex flex-wrap gap-2">
-                {selectedProject.topics.map((topic) => (
-                  <span
-                    key={topic}
-                    className="px-3 py-1 text-sm rounded-full"
-                    style={{
-                      backgroundColor: 'rgba(88, 166, 255, 0.1)',
-                      color: '#58a6ff',
-                      border: '1px solid rgba(88, 166, 255, 0.3)'
-                    }}
-                  >
-                    {topic}
-                  </span>
-                ))}
-              </div>
-
-              {/* Full Description */}
-              <article
-                className="p-4 sm:p-6 rounded-lg border"
-                style={{
-                  backgroundColor: '#161b22',
-                  borderColor: '#30363d'
-                }}
-              >
-                <pre className="whitespace-pre-wrap text-sm sm:text-base font-sans leading-relaxed" style={{ color: '#c9d1d9' }}>
-                  {selectedProject.fullDescription}
-                </pre>
-              </article>
-
-              {/* Actions */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={selectedProject.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-                  style={{
-                    backgroundColor: '#238636',
-                    color: '#ffffff'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#2ea043';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#238636';
-                  }}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  {language === 'es' && 'Visitar Sitio'}
-                  {language === 'en' && 'Visit Site'}
-                  {language === 'ar' && 'زيارة الموقع'}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
