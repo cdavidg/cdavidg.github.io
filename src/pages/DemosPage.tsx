@@ -7,7 +7,7 @@ interface DemosPageProps {
 
 export function DemosPage({ language }: DemosPageProps) {
   return (
-    <div className="min-h-screen bg-[#0d1117] text-gray-300">
+    <div className="min-h-screen bg-background dark text-foreground">
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="text-center">
           {/* Icon */}
