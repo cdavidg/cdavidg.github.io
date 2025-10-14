@@ -30,36 +30,45 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
   };
 
   return (
-    <header className="border-b" style={{ 
-      backgroundColor: '#0d1117', 
-      borderColor: '#30363d'
-    }}>
-      <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4 sm:gap-8">
-            {/* Title */}
-            <h1 className="text-base font-semibold whitespace-nowrap" style={{ color: '#e6edf3' }}>
-              CV David Guerra
-            </h1>
+    <header
+      className="border-b"
+      style={{
+        backgroundColor: '#0d1117',
+        borderColor: '#30363d'
+      }}
+    >
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1600px] py-4 sm:py-6 flex flex-col items-center gap-4 sm:gap-6">
+          {/* Title */}
+          <h1
+            className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-center"
+            style={{ color: '#e6edf3' }}
+          >
+            CV David Guerra
+          </h1>
 
-            {/* Navigation Tabs */}
-            <nav className="flex items-center h-16 -mb-px">
+          {/* Navigation Tabs */}
+          <nav className="w-full">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
               {tabs.map((tab) => {
                 const Icon = tab.Icon;
                 return (
                   <Link
                     key={tab.path}
                     to={tab.path}
-                    className="flex items-center gap-2 px-3 sm:px-4 h-16 text-sm border-b-2 transition-colors"
-                    style={isActive(tab.path) ? {
-                      color: '#e6edf3',
-                      borderColor: '#f78166',
-                      fontWeight: '600'
-                    } : {
-                      color: '#7d8590',
-                      borderColor: 'transparent',
-                      fontWeight: '400'
-                    }}
+                    className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 border-b-2 text-sm sm:text-base transition-colors"
+                    style={isActive(tab.path)
+                      ? {
+                          color: '#e6edf3',
+                          borderColor: '#f78166',
+                          fontWeight: '600'
+                        }
+                      : {
+                          color: '#7d8590',
+                          borderColor: 'transparent',
+                          fontWeight: '400'
+                        }
+                    }
                     onMouseEnter={(e) => {
                       if (!isActive(tab.path)) {
                         e.currentTarget.style.color = '#e6edf3';
@@ -76,13 +85,13 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
                   </Link>
                 );
               })}
-            </nav>
-          </div>
+            </div>
+          </nav>
 
           {/* Language Selector */}
           <div className="relative group">
             <button
-              className="flex items-center gap-2 px-3 py-1.5 text-sm rounded-md transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm rounded-md transition-colors"
               style={{
                 color: '#e6edf3',
                 backgroundColor: 'transparent'
@@ -95,12 +104,12 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
               }}
             >
               <Globe className="w-4 h-4" />
-              <span>{languages.find(l => l.code === currentLanguage)?.flag}</span>
+              <span>{languages.find((l) => l.code === currentLanguage)?.flag}</span>
             </button>
-            
+
             {/* Dropdown */}
             <div
-              className="absolute right-0 mt-2 w-48 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+              className="absolute left-1/2 mt-2 w-48 -translate-x-1/2 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
               style={{
                 backgroundColor: '#161b22',
                 border: '1px solid #30363d'
