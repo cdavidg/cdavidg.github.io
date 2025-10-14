@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Globe, Code2, FolderKanban, Sparkles } from 'lucide-react';
 import { Language } from '../lib/translations';
@@ -11,6 +11,7 @@ interface GitHubHeaderProps {
 export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeaderProps) {
   const location = useLocation();
   const languageSelectorRef = useRef<HTMLDivElement | null>(null);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
   
   const tabs = [
     { path: '/', label: 'Code', Icon: Code2 },
@@ -33,6 +34,28 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
     return location.pathname.startsWith(path);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!languageSelectorRef.current?.contains(event.target as Node)) {
+        setLanguageMenuOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
   return (
     <header
       className="border-b"
@@ -44,63 +67,64 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-[1600px] py-4 sm:py-5">
           <div className="flex flex-col gap-4 sm:gap-5">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+            {/* Title row with language selector */}
+            <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
               <h1
                 className="text-2xl sm:text-3xl font-semibold tracking-tight"
-                style={{ color: '#e6edf3', marginTop: '25px', paddingLeft: '10px', fontSize: '20px' }}
+                style={{ color: '#e6edf3', paddingLeft: '10px' }}
               >
                 CV David Guerra
               </h1>
 
-              <div className="relative group" ref={languageSelectorRef} style={{ marginLeft: 'auto', marginTop: 'auto', justifyContent: 'flex-end' }}> 
-                <button
+              <div
+                ref={languageSelectorRef}
+                className="absolute right-0 top-[25px] self-end sm:static sm:self-auto sm:top-auto"
+              >
+                <div className="relative">
+                  <button
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm rounded-md transition-colors hover:bg-[#21262d] focus:bg-[#21262d] focus:outline-none"
                     style={{ color: '#e6edf3' }}
                     type="button"
-                    data-lang-trigger="true"
-                >
+                    aria-haspopup="listbox"
+                    aria-expanded={languageMenuOpen}
+                    onClick={() => setLanguageMenuOpen((open) => !open)}
+                  >
                     <Globe className="w-4 h-4" />
                     <span className="hidden sm:inline">{activeLanguage.flag}</span>
                     <span className="text-sm font-medium" style={{ color: '#7d8590' }}>
-                        {activeLanguage.label}
+                      {activeLanguage.label}
                     </span>
-                </button>
+                  </button>
 
-                {/* Dropdown */}
-                <div
-                  className="absolute left-0 mt-2 w-48 rounded-md shadow-lg opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto transition-all duration-200"
-                  style={{
-                    backgroundColor: '#161b22',
-                    border: '1px solid #30363d'
-                  }}
-                >
-                  <div className="py-1">
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => {
-                          onLanguageChange(lang.code);
-                          const trigger = languageSelectorRef.current?.querySelector<HTMLButtonElement>('[data-lang-trigger="true"]');
-                          trigger?.blur();
-                        }}
-                        className="w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors"
-                        style={{
-                          color: currentLanguage === lang.code ? '#e6edf3' : '#7d8590',
-                          backgroundColor: currentLanguage === lang.code ? '#21262d' : 'transparent'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#21262d';
-                          e.currentTarget.style.color = '#e6edf3';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = currentLanguage === lang.code ? '#21262d' : 'transparent';
-                          e.currentTarget.style.color = currentLanguage === lang.code ? '#e6edf3' : '#7d8590';
-                        }}
-                      >
-                        <span className="hidden sm:inline">{lang.flag}</span>
-                        <span>{lang.label}</span>
-                      </button>
-                    ))}
+                  <div
+                    className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg transition-all duration-200 ${languageMenuOpen ? 'opacity-100 visible pointer-events-auto translate-y-0' : 'opacity-0 invisible pointer-events-none -translate-y-1'}`}
+                    style={{
+                      backgroundColor: '#161b22',
+                      border: '1px solid #30363d'
+                    }}
+                    role="listbox"
+                  >
+                    <div className="py-1">
+                      {languages.map((lang) => {
+                        const isSelected = currentLanguage === lang.code;
+                        return (
+                          <button
+                            key={lang.code}
+                            onClick={() => {
+                              onLanguageChange(lang.code);
+                              setLanguageMenuOpen(false);
+                            }}
+                            className="w-full text-left px-4 py-2 text-sm transition-colors"
+                            style={{
+                              color: isSelected ? '#e6edf3' : '#7d8590',
+                              backgroundColor: isSelected ? '#21262d' : 'transparent'
+                            }}
+                          >
+                            <span>{lang.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
