@@ -20,9 +20,9 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
   ];
 
   const languages: { code: Language; label: string; flag: string }[] = [
-    { code: 'es', label: 'Español', flag: '🇪🇸' },
-    { code: 'en', label: 'English', flag: '🇺🇸' },
-    { code: 'ar', label: 'العربية', flag: '🇸🇦' },
+    { code: 'es', label: 'Español' },
+    { code: 'en', label: 'English' },
+    { code: 'ar', label: 'العربية'},
   ];
 
   const activeLanguage = languages.find((lang) => lang.code === currentLanguage) ?? languages[0];
