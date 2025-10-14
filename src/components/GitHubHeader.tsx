@@ -52,10 +52,7 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
                 CV David Guerra
               </h1>
 
-              <div 
-                className="relative group sm:relative sm:ml-auto sm:mt-auto sm:justify-end absolute ml-auto self-end mt-[25px]" 
-                ref={languageSelectorRef}
-              > 
+              <div className="relative group" ref={languageSelectorRef} style={{ marginLeft: 'auto', marginTop: 'auto', justifyContent: 'flex-end' }}> 
                 <button
                     className="flex items-center gap-2 px-3 sm:px-4 py-2 text-sm rounded-md transition-colors hover:bg-[#21262d] focus:bg-[#21262d] focus:outline-none"
                     style={{ color: '#e6edf3' }}
