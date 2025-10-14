@@ -44,15 +44,15 @@ export function ProjectModal({
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col bg-card border-border p-0">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col bg-card border-border p-0" style={{ width: '95vw' }}>
           <DialogHeader className="flex-shrink-0 px-6 py-5 border-b border-border">
-            <div className="flex items-center justify-between">
-              <DialogTitle className="text-2xl font-bold text-foreground">{title}</DialogTitle>
+            <div className="flex items-center justify-between gap-4">
+              <DialogTitle className="text-2xl font-bold text-foreground break-words flex-1 min-w-0">{title}</DialogTitle>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={onClose}
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground flex-shrink-0"
               >
                 <X className="w-5 h-5" />
               </Button>
@@ -72,9 +72,9 @@ export function ProjectModal({
             )}
           </DialogHeader>
 
-          <div className="flex-1 overflow-y-auto space-y-6 px-6 py-6">
+          <div className="flex-1 overflow-y-auto space-y-6 px-6 py-6" style={{ minWidth: 0 }}>
             {/* Technologies */}
-            <div>
+            <div className="min-w-0">
               <h3 className="text-lg font-semibold text-foreground mb-3">Stack Tecnológico</h3>
               <div className="flex flex-wrap gap-2" style={{paddingBottom: '25px'}}>
                 {technologies.map((tech, index) => (
@@ -86,9 +86,17 @@ export function ProjectModal({
             </div>
 
             {/* Description */}
-            <div>
+            <div className="min-w-0 overflow-hidden">
               <h3 className="text-lg font-semibold text-foreground mb-3">Descripción del Proyecto</h3>
-              <div className="text-muted-foreground whitespace-pre-wrap leading-relaxed break-words">
+              <div 
+                className="text-muted-foreground leading-relaxed"
+                style={{ 
+                  whiteSpace: 'pre-wrap',
+                  wordBreak: 'break-word',
+                  overflowWrap: 'break-word',
+                  maxWidth: '100%'
+                }}
+              >
                 {fullDescription || description}
               </div>
             </div>
