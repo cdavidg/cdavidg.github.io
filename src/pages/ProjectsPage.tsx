@@ -16,7 +16,6 @@ interface Project {
   languageColor: string;
   topics: string[];
   updatedAt: string;
-  images?: string[];
 }
 
 export function ProjectsPage({ language }: ProjectsPageProps) {
@@ -34,14 +33,6 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
       languageColor: '#4F5D95',
       topics: ['WordPress', 'WooCommerce', 'QvaPay', 'Telegram Bot', 'Email Manager', 'RSS'],
       updatedAt: '2024',
-      images: [
-        "/qvaclick/Screenshot 2025-10-11 183606.jpg",
-        "/qvaclick/Screenshot 2025-10-11 183619.jpg",
-        "/qvaclick/Screenshot 2025-10-11 183700.jpg",
-        "/qvaclick/Screenshot 2025-10-11 183721.jpg",
-        "/qvaclick/Screenshot 2025-10-11 183742.jpg",
-        "/qvaclick/Screenshot 2025-10-11 184029.jpg"
-      ],
     },
   ];
 
@@ -207,28 +198,6 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
                   {selectedProject.fullDescription}
                 </pre>
               </div>
-
-              {/* Images */}
-              {selectedProject.images && selectedProject.images.length > 0 && (
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-4" style={{ color: '#e6edf3' }}>
-                    {language === 'es' && 'Capturas de Pantalla'}
-                    {language === 'en' && 'Screenshots'}
-                    {language === 'ar' && 'لقطات الشاشة'}
-                  </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {selectedProject.images.map((img, idx) => (
-                      <img
-                        key={idx}
-                        src={img}
-                        alt={`Screenshot ${idx + 1}`}
-                        className="w-full rounded-lg border"
-                        style={{ borderColor: '#30363d' }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* Actions */}
               <div className="flex gap-3">

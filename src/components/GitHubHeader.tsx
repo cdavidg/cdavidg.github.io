@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Globe } from 'lucide-react';
+import { Globe, Code2, FolderKanban, Sparkles } from 'lucide-react';
 import { Language } from '../lib/translations';
 
 interface GitHubHeaderProps {
@@ -11,9 +11,9 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
   const location = useLocation();
   
   const tabs = [
-    { path: '/', label: 'Code', icon: '<>' },
-    { path: '/projects', label: 'Projects', icon: '📦' },
-    { path: '/demos', label: 'Demos', icon: '🎮' },
+    { path: '/', label: 'Code', Icon: Code2 },
+    { path: '/projects', label: 'Projects', Icon: FolderKanban },
+    { path: '/demos', label: 'Demos', Icon: Sparkles },
   ];
 
   const languages: { code: Language; label: string; flag: string }[] = [
@@ -34,43 +34,50 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
       backgroundColor: '#0d1117', 
       borderColor: '#30363d'
     }}>
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Title */}
-          <h1 className="text-base font-semibold" style={{ color: '#e6edf3' }}>
-            CV David Guerra
-          </h1>
+      <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4 sm:gap-8">
+            {/* Title */}
+            <h1 className="text-base font-semibold whitespace-nowrap" style={{ color: '#e6edf3' }}>
+              CV David Guerra
+            </h1>
 
-          {/* Navigation Tabs */}
-          <nav className="flex items-center h-16 -mb-px">
-            {tabs.map((tab) => (
-              <Link
-                key={tab.path}
-                to={tab.path}
-                className="flex items-center gap-2 px-4 h-16 text-sm font-medium border-b-2 transition-colors"
-                style={isActive(tab.path) ? {
-                  color: '#e6edf3',
-                  borderColor: '#f78166'
-                } : {
-                  color: '#7d8590',
-                  borderColor: 'transparent'
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive(tab.path)) {
-                    e.currentTarget.style.color = '#e6edf3';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive(tab.path)) {
-                    e.currentTarget.style.color = '#7d8590';
-                  }
-                }}
-              >
-                <span>{tab.icon}</span>
-                <span>{tab.label}</span>
-              </Link>
-            ))}
-          </nav>
+            {/* Navigation Tabs */}
+            <nav className="flex items-center h-16 -mb-px">
+              {tabs.map((tab) => {
+                const Icon = tab.Icon;
+                return (
+                  <Link
+                    key={tab.path}
+                    to={tab.path}
+                    className="flex items-center gap-2 px-3 sm:px-4 h-16 text-sm border-b-2 transition-colors"
+                    style={isActive(tab.path) ? {
+                      color: '#e6edf3',
+                      borderColor: '#f78166',
+                      fontWeight: '600'
+                    } : {
+                      color: '#7d8590',
+                      borderColor: 'transparent',
+                      fontWeight: '400'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive(tab.path)) {
+                        e.currentTarget.style.color = '#e6edf3';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive(tab.path)) {
+                        e.currentTarget.style.color = '#7d8590';
+                      }
+                    }}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span className="hidden sm:inline">{tab.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
 
           {/* Language Selector */}
           <div className="relative group">
