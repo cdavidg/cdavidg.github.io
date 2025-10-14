@@ -15,9 +15,9 @@ export function LanguageSelector({ currentLanguage, onLanguageChange }: Language
           <SelectValue placeholder="Language" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="es">🇪🇸 Español</SelectItem>
-          <SelectItem value="en">🇬🇧 English</SelectItem>
-          <SelectItem value="ar">🇸🇦 العربية</SelectItem>
+          <SelectItem value="es">ES Español</SelectItem>
+          <SelectItem value="en">US English</SelectItem>
+          <SelectItem value="ar">AR العربية</SelectItem>
         </SelectContent>
       </Select>
     </div>
