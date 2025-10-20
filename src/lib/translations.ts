@@ -20,7 +20,7 @@ export const translations = {
     extras: "Extras",
     
     // Professional Summary
-    summary: "Desarrollador especializado en herramientas de IA para automatización de tareas a nivel industrial. Experiencia en desarrollo de soluciones que optimizan procesos empresariales mediante Python, automatización inteligente y gestión de dispositivos Android. Me enfoco en crear herramientas prácticas que conectan la inteligencia artificial con necesidades reales de negocio, desde bots de Telegram hasta sistemas de sincronización de dispositivos.",
+    summary: "Desarrollo e implementación de herramientas de inteligencia artificial y software backend orientadas a la automatización de procesos y optimización de flujos operativos a nivel industrial y productivo. Experiencia en diseño de arquitecturas modulares, procesamiento de datos, visión por computador y despliegue de modelos en entornos reales. Combino el conocimiento en IA con una sólida base en desarrollo web y backend, integrando sistemas de control, análisis y administración en plataformas funcionales y escalables.",
     
     // Technical Stack
     programmingLanguages: "Lenguajes de Programación",
@@ -140,7 +140,7 @@ Desarrollo de soluciones personalizadas sobre WordPress orientadas a la integrac
     extras: "Extras",
     
     // Professional Summary
-    summary: "Software engineer specialized in backend development, automation, and applied artificial intelligence. Experience in Python (Django, Flask, FastAPI) and PHP (Laravel, CakePHP, WordPress), with API integration, payment systems, and microservices. Extensive experience in computer vision, model training (PyTorch, TensorFlow, YOLO, OCR), and deployment of optimized production pipelines. I focus on creating scalable, clean, and maintainable solutions that connect AI with real products.",
+    summary: "Development and implementation of artificial intelligence tools and backend software oriented towards process automation and optimization of operational workflows at industrial and productive levels. Experience in modular architecture design, data processing, computer vision, and model deployment in real environments. I combine AI knowledge with a solid foundation in web and backend development, integrating control, analysis, and administration systems into functional and scalable platforms.",
     
     // Technical Stack
     programmingLanguages: "Programming Languages",
@@ -260,7 +260,7 @@ Development of custom WordPress solutions focused on external service integratio
     extras: "إضافات",
     
     // Professional Summary
-    summary: "مهندس برمجيات متخصص في تطوير الخلفية والأتمتة والذكاء الاصطناعي التطبيقي. خبرة في Python (Django، Flask، FastAPI) و PHP (Laravel، CakePHP، WordPress)، مع تكامل واجهات برمجة التطبيقات وأنظمة الدفع والخدمات الدقيقة. خبرة واسعة في رؤية الكمبيوتر وتدريب النماذج (PyTorch، TensorFlow، YOLO، OCR) ونشر خطوط الإنتاج المحسّنة. أركز على إنشاء حلول قابلة للتوسع ونظيفة وقابلة للصيانة تربط الذكاء الاصطناعي بالمنتجات الحقيقية.",
+    summary: "تطوير وتنفيذ أدوات الذكاء الاصطناعي وبرمجيات الخادم الخلفي الموجهة لأتمتة العمليات وتحسين تدفقات العمل التشغيلية على المستوى الصناعي والإنتاجي. خبرة في تصميم الهياكل المعيارية ومعالجة البيانات ورؤية الكمبيوتر ونشر النماذج في البيئات الحقيقية. أجمع بين المعرفة في الذكاء الاصطناعي وأساس قوي في تطوير الويب والخادم الخلفي، ودمج أنظمة التحكم والتحليل والإدارة في منصات وظيفية وقابلة للتوسع.",
     
     // Technical Stack
     programmingLanguages: "لغات البرمجة",
