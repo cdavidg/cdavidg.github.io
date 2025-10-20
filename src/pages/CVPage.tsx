@@ -108,7 +108,7 @@ export function CVPage({ language }: CVPageProps) {
               <div className="bg-card border border-border rounded-lg p-6">
                 <SectionHeader tag={t.education}>
                   <GraduationCap className="w-6 h-6" />
-                  {t.education}
+                  {/*t.education*/}
                 </SectionHeader>
                 
                 <div className="space-y-4">
@@ -156,7 +156,7 @@ export function CVPage({ language }: CVPageProps) {
             <section className="mb-8">
               <div className="bg-card border border-border rounded-lg p-6">
                 <SectionHeader tag={t.professionalExperience}>
-                  {t.featuredProjects}
+                  {/*t.featuredProjects*/}
                 </SectionHeader>
                 
                 {/* QvaClick with link to Projects page */}
@@ -215,7 +215,7 @@ export function CVPage({ language }: CVPageProps) {
             <section>
               <div className="bg-card border border-border rounded-lg p-6">
                 <SectionHeader tag={t.extras}>
-                  {t.extras}
+                  {/*t.extras*/}
                 </SectionHeader>
                 
                 <div className="space-y-4">
