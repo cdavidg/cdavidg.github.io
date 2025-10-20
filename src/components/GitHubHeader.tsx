@@ -16,7 +16,7 @@ export function GitHubHeader({ currentLanguage, onLanguageChange }: GitHubHeader
   const tabs = [
     { path: '/', label: 'Code', Icon: Code2 },
     { path: '/projects', label: 'Projects', Icon: FolderKanban },
-    { path: '/demos', label: 'Demos', Icon: Sparkles },
+    // { path: '/demos', label: 'Demos', Icon: Sparkles },
   ];
 
   const languages: { code: Language; label: string; flag: string }[] = [
