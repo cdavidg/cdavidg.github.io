@@ -95,7 +95,7 @@ export function CVPage({ language }: CVPageProps) {
             <section className="mb-8">
               <div className="bg-card border border-border rounded-lg p-6">
                 <SectionHeader tag={t.professionalSummary}>
-                  {t.professionalSummary}
+                  {/*t.professionalSummary */}
                 </SectionHeader>
                 <p className="text-foreground leading-relaxed" dir={language === "ar" ? "rtl" : "ltr"}>
                   {t.summary}
