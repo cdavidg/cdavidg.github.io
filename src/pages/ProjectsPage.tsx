@@ -225,7 +225,7 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
               </div>
 
               {/* Metadata */}
-              <div className="flex items-center gap-4 text-xs" style={{ color: '#7d8590' }}>
+              <div className="flex items-center gap-4 text-xs" style={{ color: '#7d8590', paddingTop: '10px' }}>
                 <div className="flex items-center gap-1">
                   <span
                     className="w-3 h-3 rounded-full"
@@ -244,7 +244,7 @@ export function ProjectsPage({ language }: ProjectsPageProps) {
         </section>
 
         {/* Coming Soon */}
-        <div className="mt-10 text-center text-sm" style={{ color: '#7d8590' }}>
+        <div className="mt-10 text-center text-sm" style={{ color: '#7d8590', paddingTop: '25px' }}>
           <p>
             {language === 'es' && '🚀 Más proyectos próximamente...'}
             {language === 'en' && '🚀 More projects coming soon...'}
